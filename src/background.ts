@@ -4,6 +4,8 @@
 
 import { init } from './scripts/content-script'
 
+console.log('background.ts is running')
+
 chrome.action.onClicked.addListener((tab) => {
   if (tab && tab.id) {
     chrome.scripting.executeScript({

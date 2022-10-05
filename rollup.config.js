@@ -16,6 +16,7 @@ export default {
   output: {
     dir: 'dist',
     format: 'esm',
+    sourcemap: true,
     chunkFileNames: path.join('chunks', '[name]-[hash].js'),
   },
   plugins: [
@@ -29,7 +30,7 @@ export default {
     simpleReloader(),
     resolve(),
     commonjs(),
-    typescript(),
+    typescript({rootDir: "."}),
     emptyDir(),
     isProduction && zip({ dir: 'releases' }),
   ],
